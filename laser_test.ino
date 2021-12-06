@@ -13,7 +13,7 @@ void setup() {                                                  //This part of t
 
 }
 
-void loop() {               // this part of the program is run, in order, over and over again, start to finish, unless INTERRUPTED by our interrupt
+void loop() { // this part of the program is run, in order, over and over again, start to finish, unless INTERRUPTED by our interrupt
   if(Risingflag ==1){                       
     Start = micros();       //set the variable Start to current microseconds
   Risingflag=0;           //reset the rising flag to 0, so that this function isnt called again until the shutter actually fires
@@ -23,7 +23,7 @@ void loop() {               // this part of the program is run, in order, over a
   Fallingflag = 0;      //reset the falling flag to 0, so that this function isnt called again untill the shutter fires again.
   Fired = 1;            // set the fired flag to 1, triggering the calculation of a shutter speed, and its display over the serial monitor.
   }
-  if (Fired == 1){                            //if the flag Fired = 1, print this information to the serial monitor"
+  if (Fired == 1){  //if the flag Fired = 1, print this information to the serial monitor"
     Serial.print("Start: ");
     Serial.println(Start);
     Serial.print("Stop: ");
@@ -37,15 +37,11 @@ void loop() {               // this part of the program is run, in order, over a
     Serial.print("Speed: ");
     Serial.println(SS);                //display the shutter speed
     
-    
-    
     if (SS > 1) {
       Serial.print("Shutter speed: ");
       Serial.println(SS);                
     } else {
-      
       float SS2 = 1/SS;                   // make a variable SS2, which is the inverse of the SS, or 1/ the shutter speed
-      
       Serial.print("Shutter speed: 1/");
       Serial.println(SS2);                
     }
